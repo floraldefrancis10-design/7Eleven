@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Cafe | Coffee Station</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKm0GkOJVr2LsxuWZZ1b7NYpkjTG2zZZ29YDhmtqQukw&s=10" alt="">
+        </div>
+        <div>
+            <h2>7<span>ELEVEN</span></h2>
+            <small>SELF-SERVICE COFFEE STATION</small>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <div class="open-status">● MACHINE READY</div>
+        <button class="cart-button" onclick="toggleCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+    </div>
+</header>
+
+<section class="hero">
+    <div>
+        <span class="hero-label">FRESHLY BREWED EVERY DAY</span>
+        <h1>Your daily coffee,<br>just one tap away.</h1>
+        <p>Choose your favorite drink and enjoy every sip.</p>
+    </div>
+    <div class="hero-cup">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKm0GkOJVr2LsxuWZZ1b7NYpkjTG2zZZ29YDhmtqQukw&s=10" alt="">
+    </div>
+</section>
+
+<main>
+    <div class="section-heading">
+        <div>
+            <h2>Our Coffee Menu</h2>
+            <p>Select your favorite drink to get started.</p>
+        </div>
+    </div>
+
+    <div class="categories">
+        <button class="category active" onclick="filterMenu('All',this)">All Drinks</button>
+        <button class="category" onclick="filterMenu('Coffee',this)">Coffee</button>
+        <button class="category" onclick="filterMenu('Special',this)">Special Drinks</button>
+        <button class="category" onclick="filterMenu('Iced',this)">Iced Drinks</button>
+    </div>
+
+    <div class="menu-grid" id="menu"></div>
+</main>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<aside class="cart-panel" id="cart">
+    <div class="cart-header">
+        <h2>Your Order</h2>
+        <button class="close" onclick="toggleCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+        <p style="text-align:center;color:#758078;padding:35px 0">
+            Your cart is empty.
+        </p>
+    </div>
+
+    <div class="cart-footer">
+        <div class="total">
+            <span>Total</span>
+            <span id="total">₱0.00</span>
+        </div>
+        <button class="checkout" onclick="checkout()">Proceed to checkout</button>
+    </div>
+</aside>
+
+<div class="modal" id="modal">
+    <h2 id="modal-title">Choose your coffee</h2>
+    <p>Customize your drink before adding it to your order.</p>
+
+    <label>Drink temperature</label>
+    <select id="temperature">
+        <option>Hot</option>
+        <option>Iced</option>
+    </select>
+
+    <label>Cup size</label>
+    <select id="size">
+        <option value="Small">Small</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="Large">Large</option>
+    </select>
+
+    <div class="modal-actions">
+        <button class="cancel" onclick="closeAll()">Cancel</button>
+        <button class="confirm" onclick="addToCart()">Add to cart</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 CITY CAFE · FRESH COFFEE, EVERY DAY.</p>
+</footer>
+</body>
+</html>
